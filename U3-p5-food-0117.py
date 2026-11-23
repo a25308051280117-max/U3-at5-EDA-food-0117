@@ -1,0 +1,33 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+# Matias lopez NC 0117
+# 1. Leer el archivo CSV comida pais india
+df_food_india = pd.read_csv('india_food.csv')
+print("\n--- DATOS LEÍDOS DESDE CSV,Comida india 0117 ---")
+print(df_food_india)
+print("\n--- mostrar nombre comida + ingredientes 0117 ---")
+recetas = df_food_india[['name', 'ingredients']]
+print(recetas)
+print("\n--- tiempo de cocinado mostrar 10 registros con head 0117 ---")
+nombre_y_hora = df_food_india[['name', 'cook_time']].head(10)
+print(nombre_y_hora)
+print("\n--- Grafica comida (X) tiempo de cocinado (Y) 0117 ---")
+print("\n--- Grafica comida (X) texto a 30 grados 0117 ---")
+nombre_y_hora.plot.bar(x='name',y='cook_time', rot=30)
+plt.title('comida tipica de india Matias Lopez NC 0117')
+plt.xlabel('nombre platillo')
+plt.ylabel('tiempo de cocinado')
+plt.show()
+plt.title('comida tipica de india Matias Lopez NC 0117')
+nombre_y_hora_prep = df_food_india[['name', 'prep_time', 'cook_time']].head(10)
+nombre_y_hora_prep.plot.bar(x='name', rot=30)
+plt.title('grafica 2 columnas Matias Lopez NC 0117')
+plt.xlabel('nombre platillo')
+plt.ylabel('tiempo de cocinado prep y comida')
+plt.show()
+plt.title('graficas apiladas unas tras otras verticalmente Matias Lopez NC 0117')
+nombre_y_hora.plot.bar(x='name', stacked=True)
+plt.title('grafica apilada Matias Lopez NC 0117')
+plt.xlabel('nombre platillo')
+plt.ylabel('tiempo de cocinado prep y comida')
+plt.show()
